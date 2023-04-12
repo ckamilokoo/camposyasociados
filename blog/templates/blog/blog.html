@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block content %}
+
+{%  for publicacion in publicaciones   %}
+
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{publicacion.imagen.url}}" style="width:40%" alt="">
+                <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                    <h2 class="section-heading mb-4" >
+                        <span class="section-heading-lower">{{publicacion.titulo}}</span>
+                    </h2>
+                    <p class="mb-3">{{publicacion.contenido}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endfor %} 
+
+<section>
+    <div style="width:75%; margin:auto; text-align:center; color: white;">
+
+        Categorias:
+        {%  for publicacion in publicaciones   %}
+            {%  for categoria in publicacion.categorias.all   %}
+                <a href="{% url 'categoria' categoria.id %}" class="linkscategorias"> {{categoria.nombre}} </a>&nbsp;&nbsp;&nbsp;
+            {%  endfor   %}
+
+        {%  endfor   %}
+
+    </div>
+</section>
+
+{% endblock %} 
