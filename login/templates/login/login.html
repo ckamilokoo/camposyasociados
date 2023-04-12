@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div style="width: 75%; margin:auto; ">
+  <h2 style="color:white;" >iniciar sesion </h2>
+  {% if messages %}
+  {% for mensaje in messages %}
+  {% if mensaje.tags == 'error' %}
+    <div class="error-message">{{ mensaje }}</div>
+  {% endif %}
+      {{ mensaje }}
+  {% endfor %}
+  {% endif %}
+</br>
+  <form method="post" style="color:white;">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="iniciar sesison">
+    
+  </form>
+</div>
+{% endblock %}

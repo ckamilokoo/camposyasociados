@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div style="width: 75%; margin:auto; ">
+  <h2 style="color:white;">Registro de Usuario</h2>
+  <form method="post" style="color:white;">
+        {% csrf_token %}
+        {{  form.as_p }}
+        <input type="submit" value="Registrarse">
+    
+  </form>
+</div>
+{% endblock %}
