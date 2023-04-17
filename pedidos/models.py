@@ -32,7 +32,7 @@ class LineaPedido(models.Model):
     created_at=models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.cantidad} unidades de {self.producto_id.nombre}'
+        return f'{self.cantidad} unidades de {self.producto.nombre}'
 
     class Meta:
         db_table='lineapedidos'
